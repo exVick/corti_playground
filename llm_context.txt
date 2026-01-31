@@ -1,0 +1,161 @@
+# Corti API Documentation
+
+## Docs
+
+- [Introduction to the Administration API](https://docs.corti.ai/about/admin-api.md): Programmatic access to manage your Corti API Console account
+- [Compliance & Trust](https://docs.corti.ai/about/compliance.md)
+- [Help Center](https://docs.corti.ai/about/help.md)
+- [Introduction to the Corti API](https://docs.corti.ai/about/introduction.md): Overview of Corti application programming interfaces (API)
+- [Languages](https://docs.corti.ai/about/languages.md): Learn about how languages are supported in Corti APIs
+- [Public Roadmap](https://docs.corti.ai/about/roadmap.md)
+- [A2A Protocol (Agent-to-Agent)](https://docs.corti.ai/agentic/a2a-protocol.md): Learn about the Agent-to-Agent protocol for inter-agent communication
+- [Create Agent](https://docs.corti.ai/agentic/agents/create-agent.md): This endpoint allows the creation of a new agent that can be utilized in the `POST /agents/{id}/v1/message:send` endpoint.
+
+- [Delete Agent by ID](https://docs.corti.ai/agentic/agents/delete-agent-by-id.md): This endpoint deletes an agent by its identifier. Once deleted, the agent can no longer be used in threads.
+
+- [Get Agent by ID](https://docs.corti.ai/agentic/agents/get-agent-by-id.md): This endpoint retrieves an agent by its identifier. The agent contains information about its capabilities and the experts it can call.
+
+- [Get Agent Card](https://docs.corti.ai/agentic/agents/get-agent-card.md): This endpoint retrieves the agent card in JSON format, which provides metadata about the agent, including its name, description, and the experts it can call.
+
+- [Get Context by ID](https://docs.corti.ai/agentic/agents/get-context-by-id.md): This endpoint retrieves all tasks and top-level messages associated with a specific context for the given agent.
+
+- [Get Task by ID](https://docs.corti.ai/agentic/agents/get-task-by-id.md): This endpoint retrieves the status and details of a specific task associated with the given agent. It provides information about the task's current state, history, and any artifacts produced during its execution.
+
+- [List Agents](https://docs.corti.ai/agentic/agents/list-agents.md): This endpoint retrieves a list of all agents that can be called by the Corti Agent Framework.
+
+- [List Registry Experts](https://docs.corti.ai/agentic/agents/list-registry-experts.md): This endpoint retrieves the experts registry, which contains information about all available experts that can be referenced when creating agents through the AgentsCreateExpertReference schema.
+
+- [Send Message to Agent](https://docs.corti.ai/agentic/agents/send-message-to-agent.md): This endpoint sends a message to the specified agent to start or continue a task. The agent processes the message and returns a response. If the message contains a task ID that matches an ongoing task, the agent will continue that task; otherwise, it will start a new task.
+
+- [Update Agent by ID](https://docs.corti.ai/agentic/agents/update-agent-by-id.md): This endpoint updates an existing agent. Only the fields provided in the request body will be updated; other fields will remain unchanged.
+
+- [System Architecture](https://docs.corti.ai/agentic/architecture.md): Learn about the Agentic Framework system architecture
+- [Beginners' Guide to Agents](https://docs.corti.ai/agentic/beginners-guide.md): How LLM agents work in the Corti Agentic Framework
+- [Context & Memory](https://docs.corti.ai/agentic/context-memory.md): Learn how context and memory work in the Corti Agentic Framework
+- [Core Concepts](https://docs.corti.ai/agentic/core-concepts.md): Learn the fundamental building blocks of the Corti Agentic Framework
+- [Experts](https://docs.corti.ai/agentic/experts.md): Learn about Experts available for use with the AI Agent
+- [Amboss Researcher](https://docs.corti.ai/agentic/experts/amboss-researcher.md): Learn about how the Amboss Researcher expert works
+- [ClinicalTrials.gov](https://docs.corti.ai/agentic/experts/clinicaltrials-gov.md): Learn about how the ClinicalTrials.gov expert works
+- [DrugBank](https://docs.corti.ai/agentic/experts/drugbank.md): Learn about how the DrugBank expert works
+- [Medical Calculator](https://docs.corti.ai/agentic/experts/medical-calculator.md): Learn about how the Medical Calculator expert works
+- [Medical Coding](https://docs.corti.ai/agentic/experts/medical-coding.md): Learn about how the Medical Coding expert works
+- [Posos](https://docs.corti.ai/agentic/experts/posos.md): Learn about how the Posos expert works
+- [PubMed](https://docs.corti.ai/agentic/experts/pubmed.md): Learn about how the PubMed expert works
+- [Questionnaire Interviewing Expert](https://docs.corti.ai/agentic/experts/questionnaire-interviewing.md): Learn about how the Questionnaire Interviewing expert works
+- [Thieme](https://docs.corti.ai/agentic/experts/thieme.md): Learn about how the Thieme expert works
+- [Web Search](https://docs.corti.ai/agentic/experts/web-search.md): Learn about how the Web Search expert works
+- [FAQ](https://docs.corti.ai/agentic/faq.md): Frequently asked questions about the Corti Agentic Framework
+- [MCP Authentication](https://docs.corti.ai/agentic/mcp-authentication.md): Learn how to authenticate MCP server calls in the Agentic Framework
+- [Orchestrator](https://docs.corti.ai/agentic/orchestrator.md): Learn about the Orchestration Agent at the center of the Agentic Framework
+- [Overview to the Corti Agentic Framework](https://docs.corti.ai/agentic/overview.md): AI for every healthcare app
+- [Quickstart & First Build](https://docs.corti.ai/agentic/quickstart.md): Get started with the Corti Agentic Framework
+- [SDKs & Integrations](https://docs.corti.ai/agentic/sdks-integrations.md): Official SDKs and integration options for the Corti Agentic Framework
+- [Authenticate user and get access token](https://docs.corti.ai/api-reference/admin/auth/authenticate-user-and-get-access-token.md): Authenticate using email and password to receive an access token.
+
+<Warning>
+This `Admin API` is separate from the `Corti API` used for speech recognition, text generation, and agentic workflows:
+
+<ul><li>Authentication and scope for the `Admin API` uses email-and-password to obtain a bearer token via `/auth/token`. This token is only used for API administration.</li></ul>
+
+Please [contact us](https://help.corti.app) if you have interest in this functionality or further questions.
+</Warning>
+
+- [Create a new customer](https://docs.corti.ai/api-reference/admin/customers/create-a-new-customer.md)
+- [Delete a customer](https://docs.corti.ai/api-reference/admin/customers/delete-a-customer.md)
+- [Get quotas for a customer](https://docs.corti.ai/api-reference/admin/customers/get-quotas-for-a-customer.md)
+- [List customers for a project](https://docs.corti.ai/api-reference/admin/customers/list-customers-for-a-project.md)
+- [Update a customer](https://docs.corti.ai/api-reference/admin/customers/update-a-customer.md): Update specific fields of a customer. Only provided fields will be updated.
+- [Get quotas for all tenants within a project](https://docs.corti.ai/api-reference/admin/projects/get-quotas-for-all-tenants-within-a-project.md)
+- [Create a new user and add it to the customer](https://docs.corti.ai/api-reference/admin/users/create-a-new-user-and-add-it-to-the-customer.md)
+- [Delete a user](https://docs.corti.ai/api-reference/admin/users/delete-a-user.md)
+- [Get usage consumption for a user within a time window](https://docs.corti.ai/api-reference/admin/users/get-usage-consumption-for-a-user-within-a-time-window.md)
+- [List users for a customer](https://docs.corti.ai/api-reference/admin/users/list-users-for-a-customer.md)
+- [Update a user](https://docs.corti.ai/api-reference/admin/users/update-a-user.md)
+- [Generate Codes](https://docs.corti.ai/api-reference/codes/generate-codes.md): `Limited Access - Contact us for more information`<br/><br/>Generate codes within the context of an interaction.<br/><Note>This endpoint is only accessible within specific customer tenants. It is not available in the public API.<br/><br/>For stateless code prediction based on input text string or documentId, please refer to the [Predict Codes](/api-reference/codes/predict-codes) API, or [contact us](https://help.corti.app) for more information.</Note>
+- [List Codes](https://docs.corti.ai/api-reference/codes/list-codes.md): `Limited Access - Contact us for more information`<br/><br/>List predicted codes within the context of an interaction.<br/><Note>This endpoint is only accessible within specific customer tenants. It is not available in the public API.<br/><br/>For stateless code prediction based on input text string or documentId, please refer to the [Predict Codes](/api-reference/codes/predict-codes) API, or [contact us](https://help.corti.app) for more information.</Note>
+- [Predict Codes](https://docs.corti.ai/api-reference/codes/predict-codes.md): Predict medical codes from provided context.<br/><Note>This is a stateless endpoint, designed to predict ICD-10-CM, ICD-10-PCS, and CPT codes based on input text string or documentId.<br/><br/>More than one code system may be defined in a single request, and the maximum number of codes to return per system can also be defined.<br/><br/>Code prediction requests have two possible values for context:<br/>- `text`: One set of code prediction results will be returned based on all input text defined.<br/>- `documentId`: Code prediction will be based on that defined document only.<br/><br/>The response includes two sets of results:<br/>- `Codes`: Highest confidence bundle of codes, as selected by the code prediction model<br/>- `Candidates`: Full list of candidate codes as predicted by the model, rank sorted by model confidence with maximum possible value of 50.<br/><br/>All predicted code results are based on input context defined in the request only (not other external data or assets associated with an interaction).</Note>
+- [Select Codes](https://docs.corti.ai/api-reference/codes/select-codes.md): `Limited Access - Contact us for more information`<br/><br/>Select predicted codes within the context of an interaction.<br/><Note>This endpoint is only accessible within specific customer tenants. It is not available in the public API.<br/><br/>For stateless code prediction based on input text string or documentId, please refer to the [Predict Codes](/api-reference/codes/predict-codes) API, or [contact us](https://help.corti.app) for more information.</Note>
+- [Delete Document](https://docs.corti.ai/api-reference/documents/delete-document.md)
+- [Generate Document](https://docs.corti.ai/api-reference/documents/generate-document.md): This endpoint offers different ways to generate a document. Find guides to document generation [here](/textgen/documents-standard).
+- [Get Document](https://docs.corti.ai/api-reference/documents/get-document.md): Get Document.
+- [List Documents](https://docs.corti.ai/api-reference/documents/list-documents.md): List Documents
+- [Update Document](https://docs.corti.ai/api-reference/documents/update-document.md)
+- [Add Facts](https://docs.corti.ai/api-reference/facts/add-facts.md): Adds new facts to an interaction.
+- [Extract Facts](https://docs.corti.ai/api-reference/facts/extract-facts.md): Extract facts from provided text, without storing them.
+- [List Fact Groups](https://docs.corti.ai/api-reference/facts/list-fact-groups.md): Returns a list of available fact groups, used to categorize facts associated with an interaction.
+- [List Facts](https://docs.corti.ai/api-reference/facts/list-facts.md): Retrieves a list of facts for a given interaction.
+- [Update Fact](https://docs.corti.ai/api-reference/facts/update-fact.md): Updates an existing fact associated with a specific interaction.
+- [Update Facts](https://docs.corti.ai/api-reference/facts/update-facts.md): Updates multiple facts associated with an interaction.
+- [Create Interaction](https://docs.corti.ai/api-reference/interactions/create-interaction.md): Creates a new interaction.
+- [Delete Interaction](https://docs.corti.ai/api-reference/interactions/delete-interaction.md): Deletes an existing interaction.
+- [Get Existing Interaction](https://docs.corti.ai/api-reference/interactions/get-existing-interaction.md): Retrieves a previously recorded interaction by its unique identifier (interaction ID).
+- [List All Interactions](https://docs.corti.ai/api-reference/interactions/list-all-interactions.md): Lists all existing interactions. Results can be filtered by encounter status and patient identifier.
+- [Update Interaction](https://docs.corti.ai/api-reference/interactions/update-interaction.md): Modifies an existing interaction by updating specific fields without overwriting the entire record.
+- [Delete Recording](https://docs.corti.ai/api-reference/recordings/delete-recording.md): Delete a specific recording for a given interaction.
+- [Get Recording](https://docs.corti.ai/api-reference/recordings/get-recording.md): Retrieve a specific recording for a given interaction.
+- [List Recordings](https://docs.corti.ai/api-reference/recordings/list-recordings.md): Retrieve a list of recordings for a given interaction.
+- [Upload Recording](https://docs.corti.ai/api-reference/recordings/upload-recording.md): Upload a recording for a given interaction. There is a maximum limit of 60 minutes in length and 150MB in size for recordings.
+- [Real-time conversational transcript generation and fact extraction (FactsR™)](https://docs.corti.ai/api-reference/stream.md): WebSocket Secure (WSS) API Documentation for /stream endpoint
+- [Get Template](https://docs.corti.ai/api-reference/templates/get-template.md): Retrieves template by key.
+- [List Template Sections](https://docs.corti.ai/api-reference/templates/list-template-sections.md): Retrieves a list of template sections with optional filters for organization and language.
+- [List Templates](https://docs.corti.ai/api-reference/templates/list-templates.md): Retrieves a list of templates with optional filters for organization, language, and status.
+- [Real-time stateless dictation](https://docs.corti.ai/api-reference/transcribe.md): WebSocket Secure (WSS) API Documentation for /transcribe endpoint
+- [Create Transcript](https://docs.corti.ai/api-reference/transcripts/create-transcript.md): Create a transcript from an audio file attached, via `/recordings` endpoint, to the interaction.<br/><Note>Each interaction may have more than one audio file and transcript associated with it. While audio files up to 60min in total duration, or 150MB in total size, may be attached to an interaction, synchronous processing is only supported for audio files less than ~2min in duration.<br/><br/>If an audio file takes longer to transcribe than the 25sec synchronous processing timeout, then it will continue to process asynchronously. In this scenario, an incomplete or empty transcript with `status=processing` will be returned with a location header that can be used to retrieve the final transcript.<br/><br/>The client can poll the Get Transcript endpoint (`GET /interactions/{id}/transcripts/{transcriptId}/status`) for transcript status changes:<br/>- `200 OK` with status `processing`, `completed`, or `failed`<br/>- `404 Not Found` if the `interactionId` or `transcriptId` are invalid<br/><br/>The completed transcript can be retrieved via the Get Transcript endpoint (`GET /interactions/{id}/transcripts/{transcriptId}/`).</Note>
+- [Delete Transcript](https://docs.corti.ai/api-reference/transcripts/delete-transcript.md): Deletes a specific transcript associated with an interaction.
+- [Get Transcript](https://docs.corti.ai/api-reference/transcripts/get-transcript.md): Retrieve a transcript from a specific interaction.<br/><Note>Each interaction may have more than one transcript associated with it. Use the List Transcript request (`GET /interactions/{id}/transcripts/`) to see all transcriptIds available for the interaction.<br/><br/>The client can poll this Get Transcript endpoint (`GET /interactions/{id}/transcripts/{transcriptId}/status`) for transcript status changes:<br/>- `200 OK` with status `processing`, `completed`, or `failed`<br/>- `404 Not Found` if the `interactionId` or `transcriptId` are invalid<br/><br/>Status of `completed` indicates the transcript is finalized. If the transcript is retrieved while status is `processing`, then it will be incomplete.</Note>
+- [Get Transcript Status](https://docs.corti.ai/api-reference/transcripts/get-transcript-status.md): Poll for transcript creation status.<br/><Note>Status of `completed` indicates the transcript is finalized.<br/>If the transcript is retrieved while status is `processing`, then it will be incomplete.<br/>Status of `failed` indicate the transcript was not created successfully; please retry.</Note>
+- [List Transcripts](https://docs.corti.ai/api-reference/transcripts/list-transcripts.md): Retrieves a list of transcripts for a given interaction.
+- [Welcome to the Corti API Reference](https://docs.corti.ai/api-reference/welcome.md): AI platform for healthcare developers
+- [API Reference](https://docs.corti.ai/assistant/api-reference.md): Complete reference for all API actions, events, message types, and return values
+- [Authentication for Embedded Users](https://docs.corti.ai/assistant/authentication.md): Choosing the right OAuth2 flow for Corti Embedded integrations
+- [Configuration Guide](https://docs.corti.ai/assistant/configuration.md): In-depth reference for configuring the embedded Assistant interface, features, appearance, and locale settings
+- [Embedded Assistant API](https://docs.corti.ai/assistant/embedded-api.md): Access an API for embedding Corti Assistant in your workflow today
+- [Introduction to Embedded Assistant](https://docs.corti.ai/assistant/introduction.md): Embed a first-class ambient scribing experience into your healthcare application in minutes.
+- [PostMessage API Quickstart](https://docs.corti.ai/assistant/postmessage-api.md): Use the PostMessage API to integrate Corti Assistant via iframe or WebView
+- [Window API Quickstart](https://docs.corti.ai/assistant/window-api.md): Use the Window API for direct integration with Corti Assistant
+- [Creating Clients](https://docs.corti.ai/authentication/creating_clients.md): Quick steps to creating your first client on the Corti Developer Console.
+- [Environments & Tenants](https://docs.corti.ai/authentication/environments_tenants.md): Learn how Corti environments and tenants work, and how they affect authentication and data residency.
+- [Overview](https://docs.corti.ai/authentication/overview.md): Learn how to authenticate with client credentials for use with the Corti API.
+- [Quickstart - Authenticating to the Corti API](https://docs.corti.ai/authentication/quickstart.md): Learn how to authenticate with client credentials.
+- [Security Best Practices](https://docs.corti.ai/authentication/security_best_practices.md): Five essential steps for keeping your client credentials and access tokens secure.
+- [Corti API Console](https://docs.corti.ai/get_started/getaccess.md): Self-service portal to sign up and start your free trial today
+- [Welcome to the Corti API](https://docs.corti.ai/get_started/welcome.md): AI for every healthcare app
+- [Quickstart - AI Coding Tools & LLMs](https://docs.corti.ai/quickstart/ai-coding-tools.md): Use AI coding assistants and LLMs to build with Corti APIs faster
+- [Quickstart - Asynchronous AI Scribe](https://docs.corti.ai/quickstart/ambient-async.md): Learn how to build an ambient scribe application on the Corti API
+- [Quickstart - Real-Time AI Scribe](https://docs.corti.ai/quickstart/ambient-rt.md): Learn how to build an ambient scribe application on the Corti API
+- [Quickstart - Code Prediction](https://docs.corti.ai/quickstart/code-prediction.md): LLM prediction of ICD-10 codes based on input text string
+- [Quickstart - Real-Time Stateless Dictation](https://docs.corti.ai/quickstart/dictation.md): Walkthrough for building an dictation app using the `/transcribe` API
+- [Quickstart - Transcription](https://docs.corti.ai/quickstart/transcription.md): Speech to text from a pre-recorded audio file
+- [Changes Policy](https://docs.corti.ai/release-notes/change-policy.md): Learn how Corti approaches changes to the API
+- [Upcoming Changes](https://docs.corti.ai/release-notes/changelog-upcoming.md): Learn about deprecations and upcoming breaking changes
+- [Corti Assistant](https://docs.corti.ai/release-notes/corti-assistant.md): Updates and improvements to Corti AI scribe applications
+- [Corti Releases](https://docs.corti.ai/release-notes/overview.md): Find the latest updates across Corti AI products
+- [Speech to Text](https://docs.corti.ai/release-notes/stt.md): Updates and improvements to Corti speech to text
+- [Text Generation](https://docs.corti.ai/release-notes/textgen.md): Updates and improvements to Corti AI Text Generation functionality
+- [Javascript SDK](https://docs.corti.ai/sdk/js-sdk.md): Get started quickly with the JavaScript SDK
+- [Quickstart - Postman](https://docs.corti.ai/sdk/postman.md): Get started with our pre-built Postman collection
+- [Audio Configuration](https://docs.corti.ai/stt/audio.md): Learn about file types and codecs supported by the Corti API
+- [Recording Best Practices](https://docs.corti.ai/stt/best-practices.md): Learn about best practices for audio capture to ensure best speech to text quality and reliability
+- [Commands](https://docs.corti.ai/stt/commands.md): Learn how to build custom speech to text commands
+- [Diarization](https://docs.corti.ai/stt/diarization.md): Learn about how Corti speech to text supports conversational speaker separation
+- [Dictation Web Component](https://docs.corti.ai/stt/dictation-web.md): Let us handle microphone device management and connecting with the API
+- [Formatting](https://docs.corti.ai/stt/formatting.md): Learn about how Corti speech to text supports formatting of dictation text output
+- [Overview of Corti Speech to Text](https://docs.corti.ai/stt/overview.md): Learn about the speech to text endpoints in the Corti API
+- [Punctuation](https://docs.corti.ai/stt/punctuation.md): Learn about how punctuation is supported by Corti speech to text
+- [Smart Punctuation Integration Guide](https://docs.corti.ai/stt/smart-punctuation.md): Learn how to prevent unexpected whitespace from being added in your text when smart punctuation is supported by the editor
+- [Stream endpoint](https://docs.corti.ai/stt/stream.md): Real-time conversational clinical intelligence
+- [Speech to Text Model Training and Refinement](https://docs.corti.ai/stt/training.md): Learn about how Corti speech to text models are trained and improved
+- [Transcribe endpoint](https://docs.corti.ai/stt/transcribe.md): Real-time speech-to-text and command-and-control
+- [Recordings and Transcripts](https://docs.corti.ai/stt/transcripts.md): Speech to text via batch audio file processing
+- [Advanced Document Generation](https://docs.corti.ai/textgen/documents-advanced.md): Custom template definition and document requests
+- [Customize Template Sections](https://docs.corti.ai/textgen/documents-customize.md): How to assemble and customize sections for tailored templates
+- [Documentation Modes](https://docs.corti.ai/textgen/documents-docmode.md): Learn more about differences in documentation mode
+- [Standard Document Generation](https://docs.corti.ai/textgen/documents-standard.md): Generate documents with templates using facts or transcripts
+- [FactsR™ Extraction](https://docs.corti.ai/textgen/extractfacts.md): Learn more about ways to extract and leverage FactsR™
+- [Asynchronous Extraction](https://docs.corti.ai/textgen/facts_async.md): Learn how to extract and leverage FactsR™ in an asynchronous workflow
+- [Real-Time Extraction](https://docs.corti.ai/textgen/facts_realtime.md): Learn how to extract and leverage FactsR™ in a real-time workflow
+- [Introducing FactsR™](https://docs.corti.ai/textgen/factsr.md): Real-time healthcare AI clinical reasoning system
+- [Overview of Corti Text Generation](https://docs.corti.ai/textgen/overview.md): Learn about the text generation endpoints in the Corti API
+- [Introduction to Templates](https://docs.corti.ai/textgen/templates.md): Learn how to working with Corti templates for document generation
+- [Template Request Process](https://docs.corti.ai/textgen/templates-request.md): How to request new custom templates
+- [Standard Templates & Sections](https://docs.corti.ai/textgen/templates-standard.md): Using Corti's default out of the box templates
