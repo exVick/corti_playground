@@ -14,19 +14,25 @@ export interface AudioRecorderCallbacks {
   onAudioLevel: (level: number) => void;
 }
 
+export interface AudioRecorderOptions extends AudioRecorderCallbacks {
+  language: string;
+}
+
 export class AudioRecorder {
   private mediaRecorder: MediaRecorder | null = null;
   private websocket: WebSocket | null = null;
   private stream: MediaStream | null = null;
   private callbacks: AudioRecorderCallbacks;
+  private language: string;
   private configAccepted = false;
   private analyser: AnalyserNode | null = null;
   private audioCtx: AudioContext | null = null;
   private animFrameId: number | null = null;
   private stopping = false;
 
-  constructor(callbacks: AudioRecorderCallbacks) {
-    this.callbacks = callbacks;
+  constructor(options: AudioRecorderOptions) {
+    this.callbacks = options;
+    this.language = options.language;
   }
 
   async start(websocketUrl: string, token: string): Promise<void> {
@@ -60,14 +66,14 @@ export class AudioRecorder {
         type: "config",
         configuration: {
           transcription: {
-            primaryLanguage: "en",
+            primaryLanguage: this.language,
             isDiarization: true,
             isMultichannel: false,
             participants: [{ channel: 0, role: "multiple" }],
           },
           mode: {
             type: "facts",
-            outputLocale: "en",
+            outputLocale: this.language,
           },
         },
       };
