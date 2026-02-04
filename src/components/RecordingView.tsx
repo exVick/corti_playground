@@ -219,7 +219,7 @@ export function RecordingView({
                 id="language-select"
                 value={selectedLanguage}
                 onChange={(e) => onLanguageChange(e.target.value)}
-                disabled={!isIdle}
+                disabled={isRecording || isStopping || isConnecting}
                 className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {languages.map((lang) => (
