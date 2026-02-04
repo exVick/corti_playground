@@ -229,7 +229,9 @@ export function RecordingView({
                 ))}
               </select>
               <p className="text-xs text-gray-400 mt-2">
-                Select the primary language for audio transcription
+                {isIdle
+                  ? "Select the primary language for audio transcription"
+                  : "Language must be selected before starting a recording"}
               </p>
             </div>
           </div>

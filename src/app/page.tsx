@@ -107,7 +107,7 @@ export default function Home() {
       );
       setAppState("idle");
     }
-  }, [selectedLanguage]);
+  }, []);
 
   // --- Stop Recording ---
   const handleStopRecording = useCallback(async () => {
