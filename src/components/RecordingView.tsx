@@ -3,6 +3,22 @@
 import type { AppState, TranscriptSegment, Fact } from "@/types/corti";
 import { useEffect, useRef, useMemo } from "react";
 
+// Available languages for transcription
+const AVAILABLE_LANGUAGES = [
+  { code: "en", name: "English" },
+  { code: "bg", name: "Bulgarian" },
+  { code: "es", name: "Spanish" },
+  { code: "de", name: "German" },
+  { code: "fr", name: "French" },
+  { code: "da", name: "Danish" },
+  { code: "nl", name: "Dutch" },
+  { code: "it", name: "Italian" },
+  { code: "pt", name: "Portuguese" },
+  { code: "sv", name: "Swedish" },
+  { code: "no", name: "Norwegian" },
+  { code: "pl", name: "Polish" },
+];
+
 interface RecordingViewProps {
   appState: AppState;
   transcriptSegments: TranscriptSegment[];
@@ -125,22 +141,6 @@ export function RecordingView({
   const activeFacts = facts.filter((f) => !f.isDiscarded);
   const showContextBox = isIdle || isRecorded || isGenerating;
 
-  // Available languages for transcription
-  const languages = [
-    { code: "en", name: "English" },
-    { code: "bg", name: "Bulgarian" },
-    { code: "es", name: "Spanish" },
-    { code: "de", name: "German" },
-    { code: "fr", name: "French" },
-    { code: "da", name: "Danish" },
-    { code: "nl", name: "Dutch" },
-    { code: "it", name: "Italian" },
-    { code: "pt", name: "Portuguese" },
-    { code: "sv", name: "Swedish" },
-    { code: "no", name: "Norwegian" },
-    { code: "pl", name: "Polish" },
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/40">
       {/* Top nav bar */}
@@ -222,7 +222,7 @@ export function RecordingView({
                 disabled={isRecording || isStopping || isConnecting}
                 className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {languages.map((lang) => (
+                {AVAILABLE_LANGUAGES.map((lang) => (
                   <option key={lang.code} value={lang.code}>
                     {lang.name}
                   </option>
