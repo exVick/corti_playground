@@ -11,7 +11,9 @@ interface RecordingViewProps {
   audioLevel: number;
   error: string | null;
   additionalContext: string;
+  selectedLanguage: string;
   onAdditionalContextChange: (value: string) => void;
+  onLanguageChange: (value: string) => void;
   onStartRecording: () => void;
   onStopRecording: () => void;
   onGenerateSummary: () => void;
@@ -98,7 +100,9 @@ export function RecordingView({
   audioLevel,
   error,
   additionalContext,
+  selectedLanguage,
   onAdditionalContextChange,
+  onLanguageChange,
   onStartRecording,
   onStopRecording,
   onGenerateSummary,
@@ -120,6 +124,22 @@ export function RecordingView({
 
   const activeFacts = facts.filter((f) => !f.isDiscarded);
   const showContextBox = isIdle || isRecorded || isGenerating;
+
+  // Available languages for transcription
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "bg", name: "Bulgarian" },
+    { code: "es", name: "Spanish" },
+    { code: "de", name: "German" },
+    { code: "fr", name: "French" },
+    { code: "da", name: "Danish" },
+    { code: "nl", name: "Dutch" },
+    { code: "it", name: "Italian" },
+    { code: "pt", name: "Portuguese" },
+    { code: "sv", name: "Swedish" },
+    { code: "no", name: "Norwegian" },
+    { code: "pl", name: "Polish" },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/40">
@@ -170,6 +190,48 @@ export function RecordingView({
               />
             </svg>
             {error}
+          </div>
+        )}
+
+        {/* Language selection */}
+        {showContextBox && (
+          <div className="mb-6 bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
+            <div className="px-5 py-3 border-b border-gray-100 flex items-center gap-2">
+              <svg
+                className="w-4 h-4 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"
+                />
+              </svg>
+              <span className="text-xs font-medium text-gray-500">
+                Transcription Language
+              </span>
+            </div>
+            <div className="p-5">
+              <select
+                id="language-select"
+                value={selectedLanguage}
+                onChange={(e) => onLanguageChange(e.target.value)}
+                disabled={!isIdle}
+                className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+              <p className="text-xs text-gray-400 mt-2">
+                Select the primary language for audio transcription
+              </p>
+            </div>
           </div>
         )}
 

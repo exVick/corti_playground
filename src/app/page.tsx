@@ -31,6 +31,7 @@ export default function Home() {
   const [codesLoading, setCodesLoading] = useState(false);
   const [extractedFacts, setExtractedFacts] = useState<ExtractedFact[]>([]);
   const [factsLoading, setFactsLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
 
   const recorderRef = useRef<AudioRecorder | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -59,6 +60,7 @@ export default function Home() {
 
       // Initialize AudioRecorder
       const recorder = new AudioRecorder({
+        language: selectedLanguage,
         onTranscript: (segments) => {
           // Corti stream uses the interaction ID as segment ID for ALL
           // segments, so we cannot use seg.id as a unique key.
@@ -105,7 +107,7 @@ export default function Home() {
       );
       setAppState("idle");
     }
-  }, []);
+  }, [selectedLanguage]);
 
   // --- Stop Recording ---
   const handleStopRecording = useCallback(async () => {
@@ -271,7 +273,9 @@ export default function Home() {
       audioLevel={audioLevel}
       error={error}
       additionalContext={additionalContext}
+      selectedLanguage={selectedLanguage}
       onAdditionalContextChange={setAdditionalContext}
+      onLanguageChange={setSelectedLanguage}
       onStartRecording={handleStartRecording}
       onStopRecording={handleStopRecording}
       onGenerateSummary={handleGenerateSummary}
